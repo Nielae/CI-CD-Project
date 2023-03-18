@@ -1,14 +1,11 @@
-provider "aws" {
-  profile = "default"
-  region  = "us-east-1"
-}
-
 resource "aws_eks_node_group" "nielnode" {
   cluster_name                = aws_eks_cluster.nielclust.name
   node_group_name             = var.nodem
   node_role_arn               = aws_iam_role.nielnode.arn
   subnet_ids                  = var.subnetsid
- 
+  capacity_type               = "ON_DEMAND"  
+  instance_types              = ["t3.medium"]
+  disk_size                   = 20 
 
   scaling_config {
     desired_size = 2
