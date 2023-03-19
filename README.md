@@ -84,13 +84,13 @@ You can leave the output format empty or input any of your choice such as yaml. 
 
 When that is done, you need to install the following using the links attached.
 
-Docker: 
+Docker: https://docs.docker.com/engine/install/ubuntu/ 
 
-Terraform: 
+Terraform: https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli 
 
-kubectl:
+kubectl: https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html 
 
-eksctl: 
+eksctl: https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html 
 
 Good! you are ready to continue.
 
@@ -463,7 +463,7 @@ terraform destroy
 ```
 
 
-Now create ypur jenkins folder outside of the terraform folder. 
+Now create your jenkins folder outside of the terraform folder. 
 
 Mkdir Jenkins
 cd Jenkins
