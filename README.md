@@ -77,7 +77,6 @@ To configure your account:
 ```javascript
 aws configure
 ```
-<br> </br>
 ![Alt text](Images/aws_config.PNG)
 
 Input your access key and secret key, also input your region.
