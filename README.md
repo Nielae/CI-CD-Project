@@ -439,13 +439,18 @@ terraform init
 ```
 
 This will initialize terraform and create state files
+![Alt text](Images/terraforminit.PNG)
 <br> </br>
 
 ```htm
 terraform plan
 ```
 This will check your script for errors
+![Alt text](Images/terraformplan1.PNG)
 <br> </br>
+![Alt text](Images/terraformplan2.PNG)
+<br> </br>
+
 
 ```javascript
 terraform apply
