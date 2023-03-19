@@ -2,10 +2,14 @@ Where do I start from?
 
 HOW TO DEPLOY SAMPLE APPS ON EKS USING TERRAFORM AND JENKINS ON A LINUX SERVER.
 
+
 ![Alt text](Images/architecture1.png)
+<br> </br>
 
 For the the purpose of this, we will be using the following tools:
-![Alt text](Images/architecture2.png)
+<br> </br>
+![Alt text](Images/properties1.jpeg)
+
 
 <ol>
     <li>
@@ -70,7 +74,10 @@ This is just to ensure the apt package is upto date.
 Install AWS CLI and configure your credentials. follow this link to install AWS CLI https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html 
 
 To configure your account:
-$aws configure
+```javascript
+aws configure
+```
+<br> </br>
 ![Alt text](Images/aws_config.PNG)
 
 Input your access key and secret key, also input your region.
@@ -587,10 +594,10 @@ This will bring up the jenkins unlock screen
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 Paste content of file in password field and click continue.
-
+<br> </br>
 ![Alt text](Images/jenks9.PNG)
-
+<br> </br>
 the next step is to install plugins
-
+<br> </br>
 ![Alt text](Images/jenks10.PNG)
-
+<br> </br>
