@@ -514,7 +514,7 @@ sudo apt update
 
 # Install Java SDK 11
 sudo apt install -y default-jdk
-sudo apt install default-jre
+sudo apt install -y default-jre
 
 #Install Jenkins
 wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
