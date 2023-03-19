@@ -447,7 +447,7 @@ terraform plan
 ```
 This will check your script for errors
 ![Alt text](Images/terraformplan1.PNG)
-<br> </br>
+
 ![Alt text](Images/terraformplan2.PNG)
 <br> </br>
 
@@ -461,7 +461,8 @@ When that is done clean up with
 ```javascript
 terraform destroy
 ```
-
+![Alt text](Images/tfdestroy.PNG)
+<br> </br>
 
 Now create your jenkins folder outside of the terraform folder. 
 
@@ -584,6 +585,11 @@ This will check your script for errors
 ```javascript
 terraform apply
 ```
+![Alt text](Images/tfapply1.PNG)
+
+![Alt text](Images/tfapply2.PNG)
+
+
 This will provision an instance.
 
 Connect to the newly created instance, copy the ip and paste on your browser
