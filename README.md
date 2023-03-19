@@ -2,10 +2,10 @@ Where do I start from?
 
 HOW TO DEPLOY SAMPLE APPS ON EKS USING TERRAFORM AND JENKINS ON A LINUX SERVER.
 
-![Alt text](../Images/architecture1.png)
+![Alt text](Images/architecture1.png)
 
 For the the purpose of this, we will be using the following tools:
-![Alt text](../Images/properties1.jpeg)
+![Alt text](Images/architecture2.png)
 
 <ol>
     <li>
@@ -58,7 +58,7 @@ Navigate into your server
 Run the following commands
 
 
-```json
+```javascript
 sudo apt update
 sudo apt install net-tools 
 ```
@@ -71,7 +71,7 @@ Install AWS CLI and configure your credentials. follow this link to install AWS 
 
 To configure your account:
 $aws configure
-![Alt text](../Images/aws_config.PNG)
+![Alt text](Images/aws_config.PNG)
 
 Input your access key and secret key, also input your region.
 You can leave the output format empty or input any of your choice such as yaml. The default output is json.
@@ -97,7 +97,7 @@ cd Terraform
 
 in this folder create a file create a cluster.tf file. Don't forget, you can use any choice name.
 
-```json
+```javascript
 resource "aws_eks_cluster" "nielclust" {
   name               = var.clustern
   role_arn           = aws_iam_role.nielclust.arn
@@ -166,7 +166,7 @@ In the above content, I have specified that I want to build node within the clus
 
 Next, create the roles and assign permission in the roles.tf file.
 
-```json
+```javascript
 resource "aws_iam_role" "nielnode" {
   name = "eks-node-group-nielnode"
 
@@ -428,7 +428,7 @@ provider "kubernetes" {
 ```
 
 Now run the following:
-```json
+```javascript
 terraform init
 ```
 
@@ -441,13 +441,13 @@ terraform plan
 This will check your script for errors
 <br> </br>
 
-```json
+```javascript
 terraform apply
 ```
 This will provision your cluster and nodes. thos takes 10 - 20 mins, chill and rest your fingers. 
 
 When that is done clean up with 
-```json
+```javascript
 terraform destroy
 ```
 
@@ -557,7 +557,7 @@ sudo apt install git
 
 
 Now run the following:
-```json
+```javascript
 terraform init
 ```
 
@@ -570,7 +570,7 @@ terraform plan
 This will check your script for errors
 <br> </br>
 
-```json
+```javascript
 terraform apply
 ```
 This will provision an instance.
@@ -580,17 +580,17 @@ Connect to the newly created instance, copy the ip and paste on your browser
 your_ip_address:8080
 
 This will bring up the jenkins unlock screen
-![Alt text](../Images/jenks7.PNG)
+![Alt text](Images/jenks7.PNG)
 
 
-```json
+```python
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 Paste content of file in password field and click continue.
 
-![Alt text](../Images/jenks9.PNG)
+![Alt text](Images/jenks9.PNG)
 
 the next step is to install plugins
 
-![Alt text](../Images/jenks10.PNG)
+![Alt text](Images/jenks10.PNG)
 
