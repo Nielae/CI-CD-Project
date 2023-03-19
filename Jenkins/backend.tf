@@ -1,14 +1,14 @@
-resource "aws_s3_bucket" "nielsbuck" {
-  bucket = "nielsbuck"
+#resource "aws_s3_bucket" "nielsbuck" {
+#  bucket = "nielsbuck"
 
-  versioning {
-    enabled = true
-  }
-}
+#  versioning {
+ #   enabled = true
+ # }
+#}
 
-terraform {
-  backend "s3" {
-    bucket = "nielsbuck"
-    region = "us-east-1"
-  }
-}
+#terraform {
+ # backend "s3" {
+  #  bucket = "nielsbuck"
+  #  region = "us-east-1"
+ # }
+#}

@@ -72,7 +72,7 @@ variable "sgroupid" {
 }
 
 variable "nielkinsg" {
-  default     = "aws_security_group.nielkinsg"
+  default     = ["aws_security_group.nielsecg"]
   type        = set(string)
   description = "Jenkins Security group"
 }  

@@ -9,9 +9,11 @@ sudo apt install default-jre
 wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
 sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
 sudo apt update
-sudo apt install jenkins
+sudo apt install -y jenkins
+sudo apt install -y jenkins
 sudo systemctl start jenkins
 sudo systemctl enable jenkins
+
 
 #Install docker engine
 sudo apt-get remove docker docker-engine docker.io containerd runc
@@ -47,3 +49,8 @@ echo 'export PATH=$PATH:$HOME/bin' >> ~/.bashrc
 #install eksctl
 curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
 sudo mv /tmp/eksctl /usr/local/bin
+
+
+#install git
+sudo apt update
+sudo apt install git

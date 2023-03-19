@@ -1,5 +1,5 @@
-resource "aws_security_group" "nielkings" { 
-	name        = "nielkings" 
+resource "aws_security_group" "nielsecg" { 
+	name        = "nielsecg" 
     description = "Allow traffic on port 8080 and enable SSH" 
     vpc_id      = var.vpc 
     
@@ -38,7 +38,7 @@ resource "aws_security_group" "nielkings" {
   } 
   
   tags = { 
-  	Name = "jnielkings" 
+  	Name = "nielsecg" 
   }
 } 
 
