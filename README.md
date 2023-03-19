@@ -20,7 +20,7 @@ For the the purpose of this, we will be using the following tools:
     </li>
       <li>  
            <dt> Git </dt>
-               <dd> The repository that we will be usong to store our code </dd>
+               <dd> The repository that we will be using to store our code </dd>
             </dt>
       </li>
            <li>
