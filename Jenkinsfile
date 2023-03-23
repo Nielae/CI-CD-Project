@@ -22,7 +22,7 @@ pipeline {
             steps {
                 script {
                     dir('demo') {
-                        sh "aws eks --region us-east-1 update-kubeconfig --name Eks-cluster"
+                        sh "aws eks update-kubeconfig --region us-east-1 --name nielclust"
                         sh "kubectl apply -f complete-demo.yaml"
                         sh "kubectl apply -f manifests-monitoring"
                         sh "sleep 130s"
@@ -38,7 +38,7 @@ pipeline {
             stage("Run my web app") {
                 steps {
                     script {
-                        sh "aws eks --region us-east-1 update-kubeconfig --name Eks-cluster"
+                        sh "aws eks update-kubeconfig --region us-east-1 --name nielclust"
                         sh "kubectl apply -f niels.yaml"
                         sh "kubectl get deployment -n nielsweb"
                         sh "kubectl get svc -n nielsweb"
