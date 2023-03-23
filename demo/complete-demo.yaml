@@ -66,6 +66,7 @@ metadata:
   namespace: sock-shop
 spec:
   ports:
+  - name: insights
     # the port that this service should serve on
   - port: 80
     targetPort: 80
@@ -196,6 +197,7 @@ metadata:
   namespace: sock-shop
 spec:
   ports:
+    - name: insights
     # the port that this service should serve on
   - port: 80
     targetPort: 80
@@ -310,9 +312,10 @@ metadata:
     name: front-end
   namespace: sock-shop
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
   - port: 80
+  - name: metrics
     targetPort: 8079
     nodePort: 30001
   selector:
