@@ -197,8 +197,8 @@ metadata:
   namespace: sock-shop
 spec:
   ports:
-    - name: insights
     # the port that this service should serve on
+  - name: insights
   - port: 80
     targetPort: 80
   selector:
