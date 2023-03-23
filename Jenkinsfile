@@ -1,17 +1,50 @@
+
 pipeline {
     agent any
-
+    environment {
+        AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
+        AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
+        AWS_DEFAULT_REGION = "us-east-1"
+    }
     stages {
-        stage('plan') {
+        stage("Bring up my cluster") {
             steps {
-                echo 'I am doing terraform plan and init'
+                script {
+                    dir('Terraform') {
+                        sh "terraform init"
+                        sh "terraform plan"
+                        sh "terraform apply --auto-approve"
+                    }
+                }
+            }
+        }  
+        stage("Run the sock shop application app") {
+            steps {
+                script {
+                    dir('demo') {
+                        sh "aws eks --region us-east-1 update-kubeconfig --name Eks-cluster"
+                        sh "kubectl apply -f complete-demo.yaml"
+                        sh "kubectl apply -f manifests-monitoring"
+                        sh "sleep 130s"
+                        sh "kubectl get deployment -n sock-shop"
+                        sh "kubectl get svc -n sock-shop"
+                        sh "sleep 60s"
+                        sh "kubectl get deployment -n monitoring"
+                        sh "kubectl get svc -n monitoring"
+                    }
+                }
             }
         }
-        
-        stage('apply') {
-            steps {
-                echo 'terraform apply with auto approve'
+            stage("Run my web app") {
+                steps {
+                    script {
+                        sh "aws eks --region us-east-1 update-kubeconfig --name Eks-cluster"
+                        sh "kubectl apply -f niels.yaml"
+                        sh "kubectl get deployment -n nielsweb"
+                        sh "kubectl get svc -n nielsweb"
+                    }
+                }
             }
         }
     }
-}
+
