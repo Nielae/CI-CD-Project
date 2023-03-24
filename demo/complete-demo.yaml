@@ -197,8 +197,8 @@ metadata:
   namespace: sock-shop
 spec:
   ports:
-    # the port that this service should serve on
   - name: metrics
+    # the port that this service should serve on
   - port: 80
     targetPort: 80
   selector:
@@ -753,8 +753,8 @@ metadata:
   namespace: sock-shop
 spec:
   ports:
-    # the port that this service should serve on
   - name: metrics
+    # the port that this service should serve on
   - port: 80
     targetPort: 80
   selector:
@@ -828,8 +828,8 @@ metadata:
   namespace: sock-shop
 spec:
   ports:
-    # the port that this service should serve on
   - name: metrics
+    # the port that this service should serve on
   - port: 80
     targetPort: 80
   selector:
@@ -893,4 +893,4 @@ spec:
     targetPort: 27017
   selector:
     name: user-db
-
+    
