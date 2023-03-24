@@ -639,7 +639,8 @@ Input the name of you want to give your pipeline, select pipeline from the list 
 Now, you have to have your Jenkisfile written and stored in root directory of your repo. This script tells Jenkins the process to follow and what to do. 
 The script should look like is:
 
-```json
+```javascript
+
 pipeline {
     agent any
     environment {
@@ -688,8 +689,9 @@ pipeline {
         }
     }
 
-
 ```
+
+
 
 Navigate back to your jenkins and click on "build now". This will locate the Jenkinsfile and run it. You will see the view beloy
 ![Alt text](Images/jenks18.PNG)
