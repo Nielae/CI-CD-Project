@@ -693,13 +693,13 @@ pipeline {
 
 
 
-Navigate back to your jenkins and click on "build now". This will locate the Jenkinsfile and run it. You will see the view beloy
+Navigate back to your jenkins and click on "build now". This will locate the Jenkinsfile and run it. You will see the view below
 ![Alt text](Images/jenks18.PNG)
 <br> </br>
 
 When the contents of the script has been deployed / setup, you should receive an output.
 ![Alt text](Images/jenks19.PNG)
-Its very okay to run into errore, always read the log files or error message to get a better understanding of any issue. 
+Its very okay to run into errors, always read the log files or error message to get a better understanding of any issue. 
 <br> </br>
 <br> </br>
 
@@ -709,7 +709,7 @@ The console output shows the load balancer attached to each service;
 <br> </br>
 <br> </br>
 
-Navigate to the front-end url and confirm tha application is being displayed;
+Navigate to the front-end url and confirm the application is being displayed;
 ![Alt text](Images/felbfront1.PNG)
 
 <br> </br>
