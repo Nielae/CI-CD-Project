@@ -22,8 +22,8 @@ pipeline {
                 script {
                     dir('demo') {
                         sh "aws eks update-kubeconfig --region us-east-1 --name nielclust"
-                        sh "kubectl apply -f complete-demo.yaml"
                         sh "kubectl apply -f manifests-monitoring"
+                        sh "kubectl apply -f complete-demo.yaml"
                         sh "sleep 130s"
                         sh "kubectl get deployment -n sock-shop"
                         sh "kubectl get svc -n sock-shop"
