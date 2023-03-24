@@ -611,3 +611,109 @@ the next step is to install plugins
 <br> </br>
 ![Alt text](Images/jenks10.PNG)
 <br> </br>
+
+Once the plugins are installed, go to manage credentials
+![Alt text](Images/jenks14.PNG)
+<br> </br>
+
+Click on system
+
+![Alt text](Images/jenks%2015.PNG)
+<br> </br>
+
+
+Click on global credentials and add ypur credentials
+![Alt text](Images/jenks16.PNG)
+<br> </br>
+
+The output of your credentials when save should look like this. Pay special attention to the "kind" of credentials being created.
+![Alt text](Images/jenks17.PNG)
+<br> </br>
+
+When that is done, navigate to your dasboards and create a pipeline.
+![Alt text](Images/jenks13.PNG)
+Input the name of you want to give your pipeline, select pipeline from the list and click on ok.
+<br> </br>
+
+<br> </br>
+Now, you have to have your Jenkisfile written and stored in root directory of your repo. This script tells Jenkins the process to follow and what to do. 
+The script should look like is:
+
+```json
+pipeline {
+    agent any
+    environment {
+        AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
+        AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
+        AWS_DEFAULT_REGION = "us-east-1"
+    }
+    stages {
+        stage("Bring up my cluster") {
+            steps {
+                script {
+                    dir('Terraform') {
+                        sh "terraform init"
+                        sh "terraform apply -auto-approve"
+                    }
+                }
+            }
+        }  
+        stage("Run the sock shop application app") {
+            steps {
+                script {
+                    dir('demo') {
+                        sh "aws eks update-kubeconfig --region us-east-1 --name nielclust"
+                        sh "kubectl apply -f complete-demo.yaml"
+                        sh "kubectl apply -f manifests-monitoring"
+                        sh "sleep 130s"
+                        sh "kubectl get deployment -n sock-shop"
+                        sh "kubectl get svc -n sock-shop"
+                        sh "sleep 60s"
+                        sh "kubectl get deployment -n monitoring"
+                        sh "kubectl get svc -n monitoring"
+                    }
+                }
+            }
+        }
+            stage("Run my web app") {
+                steps {
+                    script {
+                        sh "aws eks update-kubeconfig --region us-east-1 --name nielclust"
+                        sh "kubectl apply -f niels.yaml"
+                        sh "kubectl get deployment -n nielsweb"
+                        sh "kubectl get svc -n nielsweb"
+                    }
+                }
+            }
+        }
+    }
+
+
+```
+
+Navigate back to your jenkins and click on "build now". This will locate the Jenkinsfile and run it. You will see the view beloy
+![Alt text](Images/jenks18.PNG)
+<br> </br>
+
+When the contents of the script has been deployed / setup, you should receive an output.
+![Alt text](Images/jenks19.PNG)
+Its very okay to run into errore, always read the log files or error message to get a better understanding of any issue. 
+<br> </br>
+<br> </br>
+
+The console output shows the load balancer attached to each service;
+![Alt text](Images/felb1.PNG)
+![Alt text](Images/felb2.PNG)
+<br> </br>
+<br> </br>
+
+Navigate to the front-end url and confirm tha application is being displayed;
+![Alt text](Images/felbfront1.PNG)
+
+<br> </br>
+
+
+Confirm the grafana and prometheus elb
+![Alt text](Images/grafana1.PNG)
+
+
