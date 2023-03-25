@@ -39,8 +39,8 @@ pipeline {
                     script {
                         sh "aws eks update-kubeconfig --region us-east-1 --name nielclust"
                         sh "kubectl apply -f nielsweb.yaml"
-                        sh "kubectl get deployment -n nielsweb"
-                        sh "kubectl get svc -n nielsweb"
+                        sh "kubectl get deployment -n nweb"
+                        sh "kubectl get svc -n nweb"
                     }
                 }
             }
