@@ -666,10 +666,8 @@ pipeline {
                         sh "aws eks update-kubeconfig --region us-east-1 --name nielclust"
                         sh "kubectl apply -f complete-demo.yaml"
                         sh "kubectl apply -f manifests-monitoring"
-                        sh "sleep 130s"
                         sh "kubectl get deployment -n sock-shop"
                         sh "kubectl get svc -n sock-shop"
-                        sh "sleep 60s"
                         sh "kubectl get deployment -n monitoring"
                         sh "kubectl get svc -n monitoring"
                     }
@@ -681,8 +679,8 @@ pipeline {
                     script {
                         sh "aws eks update-kubeconfig --region us-east-1 --name nielclust"
                         sh "kubectl apply -f nielsweb.yaml"
-                        sh "kubectl get deployment -n nielsweb"
-                        sh "kubectl get svc -n nielsweb"
+                        sh "kubectl get deployment -n nweb"
+                        sh "kubectl get svc -n nweb"
                     }
                 }
             }
@@ -719,3 +717,15 @@ Confirm the grafana and prometheus elb
 ![Alt text](Images/grafana1.PNG)
 
 
+Snapshots of my cluster and co 
+ ![Alt text](Images/clust1.PNG)
+
+ ![Alt text](Images/nodes.PNG)
+
+ ![Alt text](Images/nodes2.PNG)
+
+ ![Alt text](Images/nweb1.PNG)
+
+ ![Alt text](Images/ns1.PNG)
+
+ 
